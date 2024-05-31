@@ -1,3 +1,4 @@
+<%@page import="org.comstudy.web.board.dbcp.JdbcUtil"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -12,11 +13,11 @@
 </head>
 <body>
 <%
-Context initCtx = new InitialContext();
+/* Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
-DataSource ds = (DataSource)envCtx.lookup("jdbc/BoardDB");
+DataSource ds = (DataSource)envCtx.lookup("jdbc/BoardDB"); */
 
-Connection conn = ds.getConnection();
+Connection conn = JdbcUtil.getConnection();
 
 out.println(conn);
 

@@ -8,12 +8,8 @@
 </head>
 <body>
 
-<h1>게시 글 목록</h1>
-
-<a href="input.do">글 쓰기</a> | 
-<a href="detail.do?num=1">글 상세보기</a> | 
-<a href="modify.do?num=1">글 수정</a> | 
-<a href="delete.do?num=1">글 삭제</a>
+<h1>컴스터디 코딩 아카데미</h1>
+<a href="board/list.do">자유 게시판</a>
 
 </body>
 </html>
