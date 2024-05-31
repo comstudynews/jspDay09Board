@@ -28,4 +28,8 @@ UPDATE BOARD SET author='HONG', email='hong@test.com', title='홍길동이 쓴 �
 
 SELECT * FROM BOARD;
 
+SELECT * FROM BOARD ORDER BY NUM DESC;
+
+SELECT * FROM BOARD WHERE NUM=2;
+
 commit

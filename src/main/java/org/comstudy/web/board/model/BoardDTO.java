@@ -2,7 +2,7 @@ package org.comstudy.web.board.model;
 
 import java.util.Objects;
 
-public class BoardDTO {
+public class BoardDto {
 	int num;
 	String author;
 	String email;
@@ -15,20 +15,19 @@ public class BoardDTO {
 	int rep_step;
 	int rep_indent;
 	
-	public BoardDTO() {
+	public BoardDto() {
 		this(0,"","","","","","",0, 0, 0, 0);
 	}
 	
-	public BoardDTO(int num) {
+	public BoardDto(int num) {
 		this(num,"","","","","","",0, 0, 0, 0);
 	}
 
-	public BoardDTO(String author, String email, String title, String content, String passwd) {
+	public BoardDto(String author, String email, String title, String content, String passwd) {
 		this(0,author,email,title,content,passwd,"",0, 0, 0, 0);
 	}
 
-	public BoardDTO(int num, String author, String email, String title, String content, String passwd, String writeday,
-			int readcnt, int rep_root, int rep_step, int rep_indent) {
+	public BoardDto(int num, String author, String email, String title, String content, String passwd, String writeday, int readcnt, int rep_root, int rep_step, int rep_indent) {
 		this.num = num;
 		this.author = author;
 		this.email = email;
@@ -132,25 +131,8 @@ public class BoardDTO {
 
 	@Override
 	public String toString() {
-		return "BoardDTO [num=" + num + ", author=" + author + ", email=" + email + ", title=" + title + ", content="
+		return "BoardDto [num=" + num + ", author=" + author + ", email=" + email + ", title=" + title + ", content="
 				+ content + ", passwd=" + passwd + ", writeday=" + writeday + ", readcnt=" + readcnt + ", rep_root="
 				+ rep_root + ", rep_step=" + rep_step + ", rep_indent=" + rep_indent + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(num);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		BoardDTO other = (BoardDTO) obj;
-		return num == other.num;
 	}
 }

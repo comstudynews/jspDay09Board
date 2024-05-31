@@ -17,24 +17,24 @@ public class JdbcUtil {
 		// web에서는 JDBC보다는 아파치에서 제공하는 Jndi를 사용하는것이 좋다.
 		// jdbc는 웹이 아닌 일반 Application 환경에서도 사용 가능.
 		// Jndi는 톰캣에서 제공 합니다.(웹환경에서 사용하는것이 필수)
-		if(conn == null) {
-			try {
-				Context initCtx = new InitialContext();
-				Context envCtx = (Context) initCtx.lookup("java:comp/env");
-				DataSource ds = (DataSource)envCtx.lookup("jdbc/BoardDB");
+		//if(conn == null) {
+		try {
+			Context initCtx = new InitialContext();
+			Context envCtx = (Context) initCtx.lookup("java:comp/env");
+			DataSource ds = (DataSource)envCtx.lookup("jdbc/BoardDB");
 
-				conn = ds.getConnection();
-			} catch (NamingException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			conn = ds.getConnection();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		//}
 		
 		return conn;
 	}
 	
-	public void close(Connection o) {
+	public static void close(Connection o) {
 		try {
 			if(o != null) o.close();
 		} catch (SQLException e) {
@@ -42,7 +42,7 @@ public class JdbcUtil {
 		}
 	}
 	
-	public void close(Statement o) {
+	public static void close(Statement o) {
 		try {
 			if(o != null) o.close();
 		} catch (SQLException e) {
@@ -50,7 +50,7 @@ public class JdbcUtil {
 		}
 	}
 	
-	public void close(ResultSet o) {
+	public static void close(ResultSet o) {
 		try {
 			if(o != null) o.close();
 		} catch (SQLException e) {
@@ -58,7 +58,7 @@ public class JdbcUtil {
 		}
 	}
 	
-	public void close(Connection conn, Statement stmt, ResultSet rs) {
+	public static void close(Connection conn, Statement stmt, ResultSet rs) {
 		close(conn);
 		close(stmt);
 		close(rs);
